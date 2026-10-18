@@ -1,0 +1,52 @@
+segmen,dimensi,urutan
+SD ke bawah,pendidikan,1
+SMP,pendidikan,2
+Diploma I/II/III,pendidikan,3
+SMA,pendidikan,4
+Diploma IV/S1/S2/S3,pendidikan,5
+SMK,pendidikan,6
+15-24 tahun,umur,1
+25-59 tahun,umur,2
+60 tahun ke atas,umur,3
+Laki-laki,gender,1
+Perempuan,gender,2
+Perkotaan,daerah,1
+Perdesaan,daerah,2
+Aceh,provinsi,1
+Bali,provinsi,2
+Banten,provinsi,3
+Bengkulu,provinsi,4
+DI Yogyakarta,provinsi,5
+DKI Jakarta,provinsi,6
+Gorontalo,provinsi,7
+Jambi,provinsi,8
+Jawa Barat,provinsi,9
+Jawa Tengah,provinsi,10
+Jawa Timur,provinsi,11
+Kalimantan Barat,provinsi,12
+Kalimantan Selatan,provinsi,13
+Kalimantan Tengah,provinsi,14
+Kalimantan Timur,provinsi,15
+Kalimantan Utara,provinsi,16
+Kepulauan Bangka Belitung,provinsi,17
+Kepulauan Riau,provinsi,18
+Lampung,provinsi,19
+Maluku,provinsi,20
+Maluku Utara,provinsi,21
+Nusa Tenggara Barat,provinsi,22
+Nusa Tenggara Timur,provinsi,23
+Papua,provinsi,24
+Papua Barat,provinsi,25
+Papua Barat Daya,provinsi,26
+Papua Pegunungan,provinsi,27
+Papua Selatan,provinsi,28
+Papua Tengah,provinsi,29
+Riau,provinsi,30
+Sulawesi Barat,provinsi,31
+Sulawesi Selatan,provinsi,32
+Sulawesi Tengah,provinsi,33
+Sulawesi Tenggara,provinsi,34
+Sulawesi Utara,provinsi,35
+Sumatera Barat,provinsi,36
+Sumatera Selatan,provinsi,37
+Sumatera Utara,provinsi,38
