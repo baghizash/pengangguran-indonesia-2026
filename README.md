@@ -63,6 +63,15 @@ pengangguran-2026/
 └── .gitignore
 ```
 
+## Pratinjau dashboard
+
+![Pratinjau halaman 1 dashboard](powerbi/dashboard_preview_halaman1.png)
+
+Pratinjau tata letak halaman 1 (Overview) yang dibuat langsung dari data asli
+repo ini. Kit dashboard Power BI ada di `powerbi/`; GitHub tidak bisa me-render
+file `.pbix`, jadi pratinjau ini yang tampil di halaman repo sampai dashboard-nya
+selesai dirakit di Power BI Desktop.
+
 ## Cara reproduksi
 
 ```bash
