@@ -13,11 +13,20 @@ CH.mkdir(exist_ok=True)
 
 plt.rcParams.update({
     "font.size": 11, "axes.titlesize": 14, "axes.titleweight": "bold",
-    "figure.dpi": 150, "axes.grid": True, "grid.alpha": 0.3,
-    "grid.linestyle": "--",
+    "figure.dpi": 150, "axes.grid": True, "grid.alpha": 0.55,
+    "grid.linestyle": "-", "grid.linewidth": 0.7, "grid.color": "#CFC8B8",
+    "font.family": "Noto Sans",
+    "figure.facecolor": "#F7F1E5", "axes.facecolor": "#F7F1E5",
+    "savefig.facecolor": "#F7F1E5",
+    "text.color": "#2E3138", "axes.labelcolor": "#2E3138",
+    "xtick.color": "#2E3138", "ytick.color": "#2E3138",
+    "axes.edgecolor": "#B9B2A2",
+    "axes.prop_cycle": plt.cycler(color=["#4E7FA6", "#C75B7F", "#8FB0C9",
+                                         "#2E3138", "#D98CA6", "#6E97B5"]),
 })
-NAVY = "#1E3A8A"; TEAL = "#0D9488"; RED = "#C0392B"; ORANGE = "#E67E22"
-GREEN = "#27AE60"; GRAY = "#6B7280"; DARK = "#1F2937"; LIGHT = "#DBEAFE"
+# Tema T2 OAT/BLUE/PINK: primary blue, aksen pink, pink lembut, ink
+NAVY = "#4E7FA6"; TEAL = "#8FB0C9"; RED = "#C75B7F"; ORANGE = "#D98CA6"
+GREEN = "#2F5A7E"; GRAY = "#8A8578"; DARK = "#2E3138"; LIGHT = "#DCE9F2"
 
 PERIODS = ["Feb 2024", "Feb 2025", "Feb 2026", "Mei 2026"]
 X = np.arange(len(PERIODS))
@@ -46,7 +55,7 @@ ax.annotate("Pengangguran muda 15-24 th justru NAIK\nke 17,37% pada periode yang
             xy=(4, 4.65), xytext=(2.2, 4.88),
             arrowprops=dict(arrowstyle="->", color=RED),
             fontsize=10, color=RED, fontweight="bold",
-            bbox=dict(boxstyle="round,pad=0.4", fc="#FDEDEC", ec=RED))
+            bbox=dict(boxstyle="round,pad=0.4", fc="#F6E3EA", ec=RED))
 save(fig, "01_tpt_nasional_tren")
 
 # ---------- 02: education paradox ----------
@@ -69,7 +78,7 @@ ax.annotate("SMK 7,68% = 3,3x lipat\nlulusan SD (2,31%)",
             xy=(5, 7.68), xytext=(3.2, 8.6),
             arrowprops=dict(arrowstyle="->", color=RED),
             fontsize=10, color=RED, fontweight="bold",
-            bbox=dict(boxstyle="round,pad=0.4", fc="#FDEDEC", ec=RED))
+            bbox=dict(boxstyle="round,pad=0.4", fc="#F6E3EA", ec=RED))
 save(fig, "02_paradoks_pendidikan")
 
 # ---------- 03: education trend ----------
@@ -92,7 +101,7 @@ umur = ["15-24 thn", "25-59 thn", "60+ thn"]
 vals = [[16.42, 16.16, 16.36, 17.37], [3.08, 3.04, 2.93, 2.56],
         [1.14, 1.67, 1.89, 2.35]]
 x = np.arange(len(umur)); w = 0.2
-colors = [LIGHT, "#93C5FD", "#3B82F6", NAVY]
+colors = [LIGHT, "#A9C6DA", "#7FA8C4", NAVY]
 for i, p in enumerate(PERIODS):
     b = ax.bar(x + (i - 1.5) * w, [v[i] for v in vals], w, label=p,
                color=colors[i], edgecolor=NAVY)
@@ -214,7 +223,9 @@ ax = axes[0]
 ax.plot(["Feb 2025", "Feb 2026", "Mei 2026"], [None, 3.29, 3.39], marker="o",
         color=GREEN, linewidth=2.5, markersize=8)
 ax.set_title("Rata-rata Upah Buruh Naik"); ax.set_ylabel("Rp juta")
-ax.annotate("Rp3,39 jt", xy=(2, 3.39), xytext=(1.2, 3.5),
+ax.set_ylim(3.24, 3.45)
+ax.annotate("Rp3,39 jt", xy=(2, 3.39), xytext=(-80, 16),
+            textcoords="offset points",
             arrowprops=dict(arrowstyle="->", color=GREEN),
             fontsize=11, fontweight="bold", color=GREEN)
 ax = axes[1]
