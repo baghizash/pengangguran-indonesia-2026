@@ -1,14 +1,23 @@
 periode_id,indikator,nilai,satuan
 5,formal_persen,40.6,persen
 7,formal_persen,40.58,persen
+9,formal_persen,42.07,persen
 5,informal_persen,59.4,persen
 7,informal_persen,59.42,persen
+9,informal_persen,57.93,persen
 5,setengah_menganggur_persen,8.01,persen
 7,setengah_menganggur_persen,7.27,persen
+9,setengah_menganggur_persen,8.68,persen
 5,paruh_waktu_persen,25.81,persen
 7,paruh_waktu_persen,25.97,persen
+9,paruh_waktu_persen,23.85,persen
 5,komuter_jt,7.307,juta orang
 7,komuter_jt,7.19,juta orang
+9,komuter_jt,7.53,juta orang
 7,tpak_laki_persen,84.57,persen
+9,tpak_laki_persen,84.16,persen
 7,tpak_perempuan_persen,56.41,persen
+9,tpak_perempuan_persen,56.37,persen
 7,formal_jt,59.93,juta orang
+9,formal_jt,62.25,juta orang
+9,penuh_persen,67.47,persen
