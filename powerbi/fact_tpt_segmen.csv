@@ -1,251 +1,328 @@
 periode_id,dimensi,segmen,tpt_persen
 3,pendidikan,SD ke bawah,2.38
+4,pendidikan,SD ke bawah,2.32
 5,pendidikan,SD ke bawah,2.32
+6,pendidikan,SD ke bawah,2.3
 7,pendidikan,SD ke bawah,2.32
 8,pendidikan,SD ke bawah,2.31
+9,pendidikan,SD ke bawah,2.24
 3,pendidikan,SMP,4.28
+4,pendidikan,SMP,4.11
 5,pendidikan,SMP,4.35
+6,pendidikan,SMP,3.8
 7,pendidikan,SMP,4.19
 8,pendidikan,SMP,4.16
+9,pendidikan,SMP,3.78
 3,pendidikan,SMA,6.73
+4,pendidikan,SMA,7.05
 5,pendidikan,SMA,6.35
+6,pendidikan,SMA,6.88
 7,pendidikan,SMA,6.23
 8,pendidikan,SMA,6.17
+9,pendidikan,SMA,6.87
 3,pendidikan,SMK,8.62
+4,pendidikan,SMK,9.01
 5,pendidikan,SMK,8.0
+6,pendidikan,SMK,8.63
 7,pendidikan,SMK,7.74
 8,pendidikan,SMK,7.68
+9,pendidikan,SMK,8.2
 3,pendidikan,Diploma I/II/III,4.87
+4,pendidikan,Diploma I/II/III,4.83
 5,pendidikan,Diploma I/II/III,4.84
+6,pendidikan,Diploma I/II/III,4.31
 7,pendidikan,Diploma I/II/III,4.8
 8,pendidikan,Diploma I/II/III,4.75
+9,pendidikan,Diploma I/II/III,4.18
 3,pendidikan,Diploma IV/S1/S2/S3,5.63
+4,pendidikan,Diploma IV/S1/S2/S3,5.25
 5,pendidikan,Diploma IV/S1/S2/S3,6.23
+6,pendidikan,Diploma IV/S1/S2/S3,5.39
 7,pendidikan,Diploma IV/S1/S2/S3,6.13
 8,pendidikan,Diploma IV/S1/S2/S3,6.09
+9,pendidikan,Diploma IV/S1/S2/S3,5.09
 3,umur,15-24 tahun,16.42
+4,umur,15-24 tahun,17.32
 5,umur,15-24 tahun,16.16
+6,umur,15-24 tahun,16.89
 7,umur,15-24 tahun,16.36
 8,umur,15-24 tahun,17.37
+9,umur,15-24 tahun,17.5
 3,umur,25-59 tahun,3.08
+4,umur,25-59 tahun,2.94
 5,umur,25-59 tahun,3.04
+6,umur,25-59 tahun,2.93
 7,umur,25-59 tahun,2.93
 8,umur,25-59 tahun,2.56
+9,umur,25-59 tahun,2.78
 3,umur,60 tahun ke atas,1.14
+4,umur,60 tahun ke atas,1.49
 5,umur,60 tahun ke atas,1.67
+6,umur,60 tahun ke atas,1.71
 7,umur,60 tahun ke atas,1.89
 8,umur,60 tahun ke atas,2.35
+9,umur,60 tahun ke atas,1.44
 3,gender,Laki-laki,4.96
+4,gender,Laki-laki,4.9
 5,gender,Laki-laki,4.98
+6,gender,Laki-laki,4.85
 7,gender,Laki-laki,4.88
+9,gender,Laki-laki,4.64
 3,gender,Perempuan,4.6
+4,gender,Perempuan,4.92
 5,gender,Perempuan,4.41
+6,gender,Perempuan,4.84
 7,gender,Perempuan,4.36
+9,gender,Perempuan,4.93
 3,daerah,Perkotaan,5.89
+4,daerah,Perkotaan,5.79
 5,daerah,Perkotaan,5.73
+6,daerah,Perkotaan,5.75
 7,daerah,Perkotaan,5.6
+9,daerah,Perkotaan,5.53
 3,daerah,Perdesaan,3.37
+4,daerah,Perdesaan,3.67
 5,daerah,Perdesaan,3.33
+6,daerah,Perdesaan,3.47
 7,daerah,Perdesaan,3.2
+9,daerah,Perdesaan,3.45
 1,provinsi,Aceh,6.17
 2,provinsi,Aceh,6.03
 4,provinsi,Aceh,5.75
 6,provinsi,Aceh,5.64
 7,provinsi,Aceh,5.88
 8,provinsi,Aceh,5.89
+9,provinsi,Aceh,5.7
 1,provinsi,Sumatera Utara,6.16
 2,provinsi,Sumatera Utara,5.89
 4,provinsi,Sumatera Utara,5.6
 6,provinsi,Sumatera Utara,5.32
 7,provinsi,Sumatera Utara,5.01
+9,provinsi,Sumatera Utara,5.22
 1,provinsi,Sumatera Barat,6.28
 2,provinsi,Sumatera Barat,5.94
 4,provinsi,Sumatera Barat,5.75
 6,provinsi,Sumatera Barat,5.62
 7,provinsi,Sumatera Barat,5.51
 8,provinsi,Sumatera Barat,5.53
+9,provinsi,Sumatera Barat,5.57
 1,provinsi,Riau,4.37
 2,provinsi,Riau,4.23
 4,provinsi,Riau,3.7
 6,provinsi,Riau,4.16
 7,provinsi,Riau,4.09
+9,provinsi,Riau,4.12
 1,provinsi,Jambi,4.59
 2,provinsi,Jambi,4.53
 4,provinsi,Jambi,4.48
 6,provinsi,Jambi,4.26
 7,provinsi,Jambi,3.99
+9,provinsi,Jambi,4.26
 1,provinsi,Sumatera Selatan,4.63
 2,provinsi,Sumatera Selatan,4.11
 4,provinsi,Sumatera Selatan,3.86
 6,provinsi,Sumatera Selatan,3.69
 7,provinsi,Sumatera Selatan,3.59
+9,provinsi,Sumatera Selatan,3.45
 1,provinsi,Bengkulu,3.59
 2,provinsi,Bengkulu,3.42
 4,provinsi,Bengkulu,3.11
 6,provinsi,Bengkulu,3.41
 7,provinsi,Bengkulu,3.23
+9,provinsi,Bengkulu,3.4
 1,provinsi,Lampung,4.52
 2,provinsi,Lampung,4.23
 4,provinsi,Lampung,4.19
 6,provinsi,Lampung,4.21
 7,provinsi,Lampung,3.95
+9,provinsi,Lampung,4.01
 1,provinsi,Kepulauan Bangka Belitung,4.77
 2,provinsi,Kepulauan Bangka Belitung,4.56
 4,provinsi,Kepulauan Bangka Belitung,4.63
 6,provinsi,Kepulauan Bangka Belitung,4.45
 7,provinsi,Kepulauan Bangka Belitung,4.15
+9,provinsi,Kepulauan Bangka Belitung,4.4
 1,provinsi,Kepulauan Riau,8.23
 2,provinsi,Kepulauan Riau,6.8
 4,provinsi,Kepulauan Riau,6.39
 6,provinsi,Kepulauan Riau,6.45
 7,provinsi,Kepulauan Riau,6.87
 8,provinsi,Kepulauan Riau,6.45
+9,provinsi,Kepulauan Riau,6.37
 1,provinsi,DKI Jakarta,7.18
 2,provinsi,DKI Jakarta,6.53
 4,provinsi,DKI Jakarta,6.21
 6,provinsi,DKI Jakarta,6.05
 7,provinsi,DKI Jakarta,6.03
 8,provinsi,DKI Jakarta,5.79
+9,provinsi,DKI Jakarta,5.75
 1,provinsi,Jawa Barat,8.31
 2,provinsi,Jawa Barat,7.44
 4,provinsi,Jawa Barat,6.75
 6,provinsi,Jawa Barat,6.77
 7,provinsi,Jawa Barat,6.64
 8,provinsi,Jawa Barat,6.61
+9,provinsi,Jawa Barat,6.67
 1,provinsi,Jawa Tengah,5.57
 2,provinsi,Jawa Tengah,5.13
 4,provinsi,Jawa Tengah,4.78
 6,provinsi,Jawa Tengah,4.66
 7,provinsi,Jawa Tengah,4.24
+9,provinsi,Jawa Tengah,4.65
 1,provinsi,DI Yogyakarta,4.06
 2,provinsi,DI Yogyakarta,3.69
 4,provinsi,DI Yogyakarta,3.48
 6,provinsi,DI Yogyakarta,3.46
 7,provinsi,DI Yogyakarta,3.05
+9,provinsi,DI Yogyakarta,3.33
 1,provinsi,Jawa Timur,5.49
 2,provinsi,Jawa Timur,4.88
 4,provinsi,Jawa Timur,4.19
 6,provinsi,Jawa Timur,3.88
 7,provinsi,Jawa Timur,3.55
 8,provinsi,Jawa Timur,3.42
+9,provinsi,Jawa Timur,3.6
 1,provinsi,Banten,8.09
 2,provinsi,Banten,7.52
 4,provinsi,Banten,6.68
 6,provinsi,Banten,6.69
 7,provinsi,Banten,6.59
 8,provinsi,Banten,6.48
+9,provinsi,Banten,6.61
 1,provinsi,Bali,4.8
 2,provinsi,Bali,2.69
 4,provinsi,Bali,1.79
 6,provinsi,Bali,1.49
 7,provinsi,Bali,1.59
 8,provinsi,Bali,1.52
+9,provinsi,Bali,1.42
 1,provinsi,Nusa Tenggara Barat,2.89
 2,provinsi,Nusa Tenggara Barat,2.8
 4,provinsi,Nusa Tenggara Barat,2.73
 6,provinsi,Nusa Tenggara Barat,3.06
 7,provinsi,Nusa Tenggara Barat,2.99
 8,provinsi,Nusa Tenggara Barat,2.99
+9,provinsi,Nusa Tenggara Barat,3.03
 1,provinsi,Nusa Tenggara Timur,3.54
 2,provinsi,Nusa Tenggara Timur,3.14
 4,provinsi,Nusa Tenggara Timur,3.02
 6,provinsi,Nusa Tenggara Timur,3.31
 7,provinsi,Nusa Tenggara Timur,3.16
 8,provinsi,Nusa Tenggara Timur,3.26
+9,provinsi,Nusa Tenggara Timur,3.42
 1,provinsi,Kalimantan Barat,5.11
 2,provinsi,Kalimantan Barat,5.05
 4,provinsi,Kalimantan Barat,4.86
 6,provinsi,Kalimantan Barat,4.82
 7,provinsi,Kalimantan Barat,4.57
+9,provinsi,Kalimantan Barat,4.87
 1,provinsi,Kalimantan Tengah,4.26
 2,provinsi,Kalimantan Tengah,4.1
 4,provinsi,Kalimantan Tengah,4.01
 6,provinsi,Kalimantan Tengah,3.97
 7,provinsi,Kalimantan Tengah,3.44
+9,provinsi,Kalimantan Tengah,4.01
 1,provinsi,Kalimantan Selatan,4.74
 2,provinsi,Kalimantan Selatan,4.31
 4,provinsi,Kalimantan Selatan,4.2
 6,provinsi,Kalimantan Selatan,4.16
 7,provinsi,Kalimantan Selatan,3.8
+9,provinsi,Kalimantan Selatan,4.04
 1,provinsi,Kalimantan Timur,5.71
 2,provinsi,Kalimantan Timur,5.31
 4,provinsi,Kalimantan Timur,5.14
 6,provinsi,Kalimantan Timur,5.18
 7,provinsi,Kalimantan Timur,5.27
+9,provinsi,Kalimantan Timur,5.23
 1,provinsi,Kalimantan Utara,4.33
 2,provinsi,Kalimantan Utara,4.01
 4,provinsi,Kalimantan Utara,3.9
 6,provinsi,Kalimantan Utara,3.85
 7,provinsi,Kalimantan Utara,3.9
+9,provinsi,Kalimantan Utara,3.79
 1,provinsi,Sulawesi Utara,6.61
 2,provinsi,Sulawesi Utara,6.1
 4,provinsi,Sulawesi Utara,5.85
 6,provinsi,Sulawesi Utara,5.99
 7,provinsi,Sulawesi Utara,5.75
 8,provinsi,Sulawesi Utara,5.85
+9,provinsi,Sulawesi Utara,5.9
 1,provinsi,Sulawesi Tengah,3.0
 2,provinsi,Sulawesi Tengah,2.95
 4,provinsi,Sulawesi Tengah,2.94
 6,provinsi,Sulawesi Tengah,2.92
 7,provinsi,Sulawesi Tengah,2.95
 8,provinsi,Sulawesi Tengah,2.95
+9,provinsi,Sulawesi Tengah,2.94
 1,provinsi,Sulawesi Selatan,4.51
 2,provinsi,Sulawesi Selatan,4.33
 4,provinsi,Sulawesi Selatan,4.19
 6,provinsi,Sulawesi Selatan,4.21
 7,provinsi,Sulawesi Selatan,4.95
 8,provinsi,Sulawesi Selatan,4.66
+9,provinsi,Sulawesi Selatan,4.23
 1,provinsi,Sulawesi Tenggara,3.36
 2,provinsi,Sulawesi Tenggara,3.15
 4,provinsi,Sulawesi Tenggara,3.09
 6,provinsi,Sulawesi Tenggara,3.31
 7,provinsi,Sulawesi Tenggara,3.25
 8,provinsi,Sulawesi Tenggara,3.47
+9,provinsi,Sulawesi Tenggara,3.52
 1,provinsi,Gorontalo,2.58
 2,provinsi,Gorontalo,3.06
 4,provinsi,Gorontalo,3.13
 6,provinsi,Gorontalo,3.42
 7,provinsi,Gorontalo,3.17
+9,provinsi,Gorontalo,3.61
 1,provinsi,Sulawesi Barat,2.34
 2,provinsi,Sulawesi Barat,2.27
 4,provinsi,Sulawesi Barat,2.68
 6,provinsi,Sulawesi Barat,2.86
 7,provinsi,Sulawesi Barat,2.93
 8,provinsi,Sulawesi Barat,2.93
+9,provinsi,Sulawesi Barat,2.93
 1,provinsi,Maluku,6.88
 2,provinsi,Maluku,6.31
 4,provinsi,Maluku,6.11
 6,provinsi,Maluku,6.27
 7,provinsi,Maluku,5.8
 8,provinsi,Maluku,5.75
+9,provinsi,Maluku,6.23
 1,provinsi,Maluku Utara,3.98
 2,provinsi,Maluku Utara,4.31
 4,provinsi,Maluku Utara,4.03
 6,provinsi,Maluku Utara,4.55
 7,provinsi,Maluku Utara,4.46
+9,provinsi,Maluku Utara,4.57
 1,provinsi,Papua Barat,5.37
 2,provinsi,Papua Barat,5.38
 4,provinsi,Papua Barat,4.13
 6,provinsi,Papua Barat,4.55
 7,provinsi,Papua Barat,4.1
+9,provinsi,Papua Barat,4.29
 4,provinsi,Papua Barat Daya,6.48
 6,provinsi,Papua Barat Daya,6.85
 7,provinsi,Papua Barat Daya,6.41
 8,provinsi,Papua Barat Daya,6.38
+9,provinsi,Papua Barat Daya,6.56
 1,provinsi,Papua,2.83
 2,provinsi,Papua,2.67
 4,provinsi,Papua,6.48
 6,provinsi,Papua,6.96
 7,provinsi,Papua,7.02
 8,provinsi,Papua,7.08
+9,provinsi,Papua,7.12
 4,provinsi,Papua Selatan,4.05
 6,provinsi,Papua Selatan,4.04
 7,provinsi,Papua Selatan,5.25
 8,provinsi,Papua Selatan,5.29
+9,provinsi,Papua Selatan,5.17
 4,provinsi,Papua Tengah,2.75
 6,provinsi,Papua Tengah,3.62
 7,provinsi,Papua Tengah,3.83
+9,provinsi,Papua Tengah,3.87
 4,provinsi,Papua Pegunungan,1.32
 6,provinsi,Papua Pegunungan,1.68
 7,provinsi,Papua Pegunungan,1.7
 8,provinsi,Papua Pegunungan,1.86
+9,provinsi,Papua Pegunungan,1.83
