@@ -41,26 +41,26 @@ code("nas = pd.read_csv(D/'tpt_nasional_series.csv')\n"
 md("## 2. Tren TPT nasional: turun perlahan")
 code("nas[['periode','tpt_persen','penganggur_jt','upah_buruh_jt']]")
 
-md("## 3. Paradoks pendidikan (Mei 2026)")
-code("p = pend.set_index('pendidikan')[['feb_2026','mei_2026']]\n"
-     "p['gap_vs_sd_pp'] = p['mei_2026'] - p.loc['SD ke bawah','mei_2026']\n"
-     "p['ratio_vs_nasional'] = p['mei_2026'] / 4.65\n"
-     "p.sort_values('mei_2026', ascending=False)")
+md("## 3. Paradoks pendidikan (Agu 2026)")
+code("p = pend.set_index('pendidikan')[['feb_2026','agu_2026']]\n"
+     "p['gap_vs_sd_pp'] = p['agu_2026'] - p.loc['SD ke bawah','agu_2026']\n"
+     "p['ratio_vs_nasional'] = p['agu_2026'] / 4.75\n"
+     "p.sort_values('agu_2026', ascending=False)")
 
-md("## 4. Pengangguran muda meledak saat nasional turun")
+md("## 4. Pengangguran muda: tertinggi, dan naik lagi di Agustus")
 code("umur.set_index('kelompok_umur')\n"
      "muda = umur.set_index('kelompok_umur').loc['15-24 tahun']\n"
-     "print('15-24 thn Mei 2026:', muda['mei_2026'], '%')\n"
-     "print('Naik Feb->Mei 2026:', round(muda['mei_2026']-muda['feb_2026'],2), 'pp')\n"
-     "print('Rasio vs nasional:', round(muda['mei_2026']/4.65,2), 'x')")
+     "print('15-24 thn Agu 2026:', muda['agu_2026'], '%')\n"
+     "print('Naik YoY Agu 2025->Agu 2026:', round(muda['agu_2026']-muda['agu_2025'],2), 'pp')\n"
+     "print('Rasio vs nasional:', round(muda['agu_2026']/4.75,2), 'x')")
 
-md("## 5. Jurang provinsi (Mei 2026)")
-code("pm = prov[['provinsi','mei_2026']].dropna().sort_values('mei_2026', ascending=False)\n"
+md("## 5. Jurang provinsi (Agu 2026)")
+code("pm = prov[['provinsi','agu_2026']].dropna().sort_values('agu_2026', ascending=False)\n"
      "pm.head(10)\n"
-     "print('Papua vs Bali:', round(7.08/1.52,2), 'x lipat')")
+     "print('Papua vs Bali:', round(7.12/1.42,2), 'x lipat')")
 
-md("## 6. 7,22 juta penganggur: siapa mereka?")
-code("dist['juta_orang'] = (7.22 * dist['porsi_persen'] / 100).round(4)\n"
+md("## 6. 7,38 juta penganggur: siapa mereka?")
+code("dist['juta_orang'] = (7.38 * dist['porsi_persen'] / 100).round(4)\n"
      "dist.sort_values('porsi_persen', ascending=False)\n"
      "print('Total porsi:', dist['porsi_persen'].sum().round(2), '%')")
 
