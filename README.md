@@ -9,30 +9,36 @@
 > bersama sumbernya di [`data/SOURCES.md`](data/SOURCES.md). Tidak ada
 > satu pun angka yang dikarang; gap data ditandai eksplisit, bukan diisi.
 
-## Temuan kunci (Mei 2026, Sakernas BPS)
+## Temuan kunci (Agustus 2026, Sakernas BPS)
 
-- **TPT nasional 4,65%** — turun perlahan dari 4,82% (Feb 2024). Di balik
-  angka yang tenang ini ada ketimpangan yang tajam.
-- **Paradoks pendidikan:** lulusan **SMK 7,68%** — tertinggi dari semua
-  jenjang, **1,65x rata-rata nasional** dan selisih **5,37 poin** dari
-  lulusan SD ke bawah (2,31%). SMK turun dari 8,62% (Feb 2024) tapi tetap
-  nomor satu. Lulusan SMA 6,17% dan Diploma IV/S1/S2/S3 6,09% juga di
-  atas rata-rata nasional.
-- **Pengangguran muda meledak:** usia **15–24 tahun 17,37%** — naik
-  1,01 poin Feb→Mei 2026 *saat TPT nasional justru turun*. 3,74x
-  rata-rata nasional, 6,79x kelompok usia produktif (25–59 thn: 2,56%).
-- **Kesenjangan wilayah & gender (Feb 2026):** perkotaan 5,60% vs
-  perdesaan 3,20% (gap 2,40 pp); laki-laki 4,88% vs perempuan 4,36%.
-- **Jurang provinsi:** Papua 7,08% vs Bali 1,52% — **4,66x lipat**.
-  Pusat industri pun tertekan: Jawa Barat 6,61%, Banten 6,48%,
-  DKI Jakarta 5,79%.
-- **7,22 juta penganggur:** porsi terbesar lulusan **SMA 28%**
-  (2,02 jt orang), lalu SMK 22,39% (1,62 jt).
-- **Kualitas pekerjaan:** hanya **40,58% pekerja formal**; 59,42%
-  informal. Setengah menganggur 7,27%, pekerja paruh waktu 25,97%.
-- **Upah naik:** rata-rata upah buruh Rp3,39 jt (Mei 2026) dari Rp3,29 jt
-  (Feb 2026). Lapangan kerja baru Feb→Mei 2026 datang dari jasa:
-  akomodasi & makan minum +195 rb, transportasi & pergudangan +121 rb.
+- **TPT nasional 4,75%** — turun 0,10 poin dari Agu 2025 (4,85%), meski
+  naik tipis dari Mei 2026 (4,65%). Titik Agustus memang selalu sedikit
+  lebih tinggi karena lulusan baru masuk pasar kerja.
+- **Paradoks pendidikan:** lulusan **SMK 8,20%** — tertinggi dari semua
+  jenjang, **1,73x rata-rata nasional** dan selisih **5,96 poin** dari
+  lulusan SD ke bawah (2,24%). SMK turun secara tahunan (8,63% pada
+  Agu 2025) tapi selalu memuncak di Agustus (9,01% pada Agu 2024).
+  Lulusan SMA 6,87% dan Diploma IV/S1/S2/S3 5,09% juga di atas rata-rata
+  nasional.
+- **Pengangguran muda:** usia **15–24 tahun 17,50%** — naik 0,61 poin
+  secara tahunan *saat semua kelompok umur lain turun*. 3,68x rata-rata
+  nasional, 6,29x kelompok usia produktif (25–59 thn: 2,78%).
+- **Kesenjangan wilayah & gender (Agu 2026):** perkotaan 5,53% vs
+  perdesaan 3,45% (gap 2,08 pp); **perempuan 4,93% kini melampaui
+  laki-laki 4,64%** — berbalik dari pola Februari 2026.
+- **Jurang provinsi:** Papua 7,12% vs Bali 1,42% — **5,01x lipat**.
+  Pusat industri pun tertekan: Jawa Barat 6,67%, Banten 6,61%,
+  DKI Jakarta 5,75%. Kenaikan terbesar setahun: Papua Selatan
+  +1,13 pp (4,04% ke 5,17%).
+- **7,38 juta penganggur:** porsi terbesar lulusan **SMA 32,31%**
+  (2,38 jt orang), lalu SMK 24,85% (1,83 jt) — **57,16% penganggur
+  adalah lulusan sekolah menengah**.
+- **Kualitas pekerjaan:** hanya **42,07% pekerja formal** (62,25 jt);
+  57,93% informal. Setengah menganggur naik ke 8,68%, pekerja paruh
+  waktu 23,85%, pekerja penuh 67,47%.
+- **Upah naik:** rata-rata upah buruh Rp3,42 jt (Agu 2026) dari
+  Rp3,39 jt (Mei 2026). Penyerap pekerja terbesar: pertanian
+  41,73 jt orang, perdagangan 26,42 jt, industri 20,35 jt.
 
 ## Struktur proyek
 
@@ -45,7 +51,7 @@ pengangguran-2026/
 │   ├── compiled/            # 9 CSV kompilasi + SOURCES.md
 │   ├── pengangguran_2026.db # hasil generate (git-ignored, bisa dibuat ulang)
 │   └── SOURCES.md           # sumber per angka
-├── sql/queries.sql           # 16 query verifikasi
+├── sql/queries.sql           # 14 query verifikasi
 ├── scripts/
 │   ├── analyze.py           # hitung findings.json (+assertion)
 │   ├── load_to_sqlite.py    # CSV -> SQLite
@@ -89,5 +95,9 @@ selesai dirakit di Power BI Desktop.
   mereka terserap ke informal karena tak bisa menunggu pekerjaan sesuai.
 - Nilai Mei 2026 untuk gender & perkotaan/perdesaan tidak dipublikasikan
   di abstrak BRS (gap, tidak dikarang). Nilai provinsi Mei 2026 hanya
-  untuk 17 provinsi.
+  untuk 17 provinsi; Agu 2026 lengkap untuk 38 provinsi (Lampiran 3
+  BRS No. 113/11/Th. XXIX).
+- Sakernas Agustus 2026 memakai KBLI 2025 (Agustus 2025 masih KBLI 2020),
+  jadi rincian lapangan usaha antar kedua Agustus itu tidak sebanding
+  langsung.
 - Seri Papua 2022–2023 tidak sebanding dengan 2024+ (pemekaran provinsi).
