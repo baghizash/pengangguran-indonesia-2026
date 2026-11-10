@@ -7,9 +7,9 @@ slicer provinsi dibiarkan "All".
 
 Di proyek ini jebakan itu **dihilangkan sejak desain data**:
 
-- `fact_tpt_nasional` — HANYA 5 baris agregat nasional
-  (Feb 2024, Feb 2025, Agu 2025, Feb 2026, Mei 2026).
-- `fact_tpt_segmen` — HANYA 250 baris level segmen
+- `fact_tpt_nasional` — HANYA 6 baris agregat nasional
+  (Feb 2024, Feb 2025, Agu 2025, Feb 2026, Mei 2026, Agu 2026).
+- `fact_tpt_segmen` — HANYA 327 baris level segmen
   (pendidikan, umur, gender, daerah, provinsi). Tidak ada satu pun
   baris "Nasional"/"Indonesia" di sini (diverifikasi oleh
   `scripts/build_powerbi.py`).
@@ -35,13 +35,13 @@ menjumlahkan/menghitung lintas kedua tabel fakta sekaligus (mis.
 
 | Visual | Angka benar |
 |---|---|
-| KPI TPT Nasional (Mei 2026) | 4,65% |
-| Bar SMK (Mei 2026) | 7,68% |
-| Bar SD ke bawah (Mei 2026) | 2,31% |
-| Gap SMK vs SD | 5,37 pp |
-| Bar 15-24 thn (Mei 2026) | 17,37% |
-| Bar Papua (Mei 2026) | 7,08% |
-| Bar Bali (Mei 2026) | 1,52% |
+| KPI TPT Nasional (Agu 2026) | 4,75% |
+| Bar SMK (Agu 2026) | 8,20% |
+| Bar SD ke bawah (Agu 2026) | 2,24% |
+| Gap SMK vs SD | 5,96 pp |
+| Bar 15-24 thn (Agu 2026) | 17,50% |
+| Bar Papua (Agu 2026) | 7,12% |
+| Bar Bali (Agu 2026) | 1,42% |
 
 Kalau ada yang beda, cek relasi `periode_id`/`segmen` dulu sebelum
 mengira datanya salah.
