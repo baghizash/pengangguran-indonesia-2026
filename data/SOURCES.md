@@ -49,6 +49,7 @@ dipublikasikan di abstrak BRS Mei 2026 — dicatat sebagai gap.
 | Periode | Sumber |
 |---|---|
 | Agu 2022, Agu 2023, Agu 2024, Agu 2025, Feb 2026 (38 provinsi) | Bappenas SIMREG "Capaian Indikator Utama Pembangunan — Tingkat Pengangguran Terbuka", simreg.bappenas.go.id (data BPS) |
+| Agu 2026 (38 provinsi) | BPS BRS No. 113/11/Th. XXIX, Lampiran 3 "TPT Menurut Provinsi" |
 | Mei 2026 top 10 + terbawah + perubahan Feb→Mei | GoodStats "10 Provinsi dengan Tingkat Pengangguran Tertinggi per Mei 2026" dan "…Terendah 2026"; investortrust.id; genvoice.id — semuanya mengutip BPS |
 
 Catatan: Papua 2022–2023 adalah Papua sebelum pemekaran (wilayah jauh
@@ -58,8 +59,12 @@ dipakai untuk klaim tren.
 
 ### Distribusi penganggur menurut pendidikan (distribusi_penganggur_pendidikan.csv)
 
-investortrust.id, mengutip BPS Sakernas Mei 2026: SMA 28%; SMK 22,39%;
-SD ke bawah 17,18%; SMP 15,65%; Diploma IV–S3 14,31%; Diploma I–III 2,48%.
+Snapshot saat ini (Agu 2026): BPS BRS No. 113/11/Th. XXIX, Gambar 10:
+SMA 32,31%; SMK 24,85%; SD ke bawah 15,55%; SMP 13,38%;
+Diploma IV–S3 11,93%; Diploma I–III 1,99% (total 100,01 karena pembulatan).
+Snapshot sebelumnya (Mei 2026): investortrust.id, mengutip BPS:
+SMA 28%; SMK 22,39%; SD ke bawah 17,18%; SMP 15,65%;
+Diploma IV–S3 14,31%; Diploma I–III 2,48%.
 
 ### Indikator pasar kerja (pasar_kerja_indikator.csv)
 
@@ -73,6 +78,37 @@ SD ke bawah 17,18%; SMP 15,65%; Diploma IV–S3 14,31%; Diploma I–III 2,48%.
 
 BPS via beritanasionalupdate (5 Agu 2026): akomodasi & makan minum +195
 rb; transportasi & pergudangan +121 rb; jasa lainnya +110 rb (Feb→Mei 2026).
+
+## Update Agustus 2026 — BRS No. 113/11/Th. XXIX (5 November 2026)
+
+Seluruh angka Agu 2026 berasal dari satu publikasi: BPS, "Keadaan
+Ketenagakerjaan Indonesia Agustus 2026", Berita Resmi Statistik
+No. 113/11/Th. XXIX, dirilis 5 November 2026
+(bps.go.id/id/pressrelease/2026/11/05/169961).
+
+| Angka | Nilai | Lokasi di BRS |
+|---|---|---|
+| TPT Agu 2026 4,75%; AK 155,37 jt; TPAK 70,33%; bekerja 147,99 jt; penganggur 7,38 jt; upah Rp3,42 jt | — | Abstrak BRS |
+| TPT pendidikan Agu 2024/2025/2026 (SMK 9,01/8,63/8,20; SD 2,32/2,30/2,24; dll) | — | Tabel 3 "TPT Menurut Karakteristik" |
+| TPT umur Agu 2024/2025/2026 (15–24: 17,32/16,89/17,50; 25–59: 2,94/2,93/2,78; 60+: 1,49/1,71/1,44) | — | Tabel 3 |
+| TPT gender Agu 2024/2025/2026 (L: 4,90/4,85/4,64; P: 4,92/4,84/4,93) | — | Tabel 3 |
+| TPT daerah Agu 2024/2025/2026 (kota: 5,79/5,75/5,53; desa: 3,67/3,47/3,45) | — | Tabel 3 |
+| Formal 42,07% (62,25 jt); informal 57,93% (85,73 jt) | — | Abstrak + Gambar 3 |
+| Setengah penganggur 8,68%; paruh waktu 23,85%; pekerja penuh 67,47% (99,85 jt); komuter 7,53 jt | — | Abstrak + Gambar 5 |
+| TPAK laki-laki 84,16%; perempuan 56,37% | — | Bagian 1 BRS |
+| Penyerap pekerja terbesar: pertanian 41,73 jt (28,20%); perdagangan 26,42 jt; industri 20,35 jt | — | Bagian 2.1 + bahan paparan BRS |
+
+Catatan update:
+- Kolom agu_2024 dan agu_2025 pada tpt_pendidikan/tpt_umur/tpt_gender/
+  tpt_daerah di-backfill dari Tabel 3 BRS yang sama, supaya seri segmen
+  kronologis Feb–Agu lengkap.
+- BPS menyebut TPT "turun 0,09 persen poin" dari Agu 2025 — dihitung dari
+  angka yang belum dibulatkan; dari angka tampil (4,85 ke 4,75) selisihnya
+  0,10 poin. Keduanya benar pada presisinya masing-masing.
+- Sakernas Agustus 2026 memakai KBLI 2025; Agustus 2025 masih KBLI 2020.
+  Karena itu sektor_penambah_pekerja.csv TIDAK diperbarui untuk Agu 2026
+  (BPS tidak mengumumkan perubahan pekerja per sektor yang sebanding);
+  tabel itu tetap periode Feb–Mei 2026.
 
 ## Batasan yang harus dipahami
 
