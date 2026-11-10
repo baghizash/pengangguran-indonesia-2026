@@ -39,10 +39,11 @@ periode_def = [
     (3, "Feb 2024", 2024, 2), (4, "Agu 2024", 2024, 8),
     (5, "Feb 2025", 2025, 2), (6, "Agu 2025", 2025, 8),
     (7, "Feb 2026", 2026, 2), (8, "Mei 2026", 2026, 5),
+    (9, "Agu 2026", 2026, 8),
 ]
 # contiguous order within the national Sakernas series (for prev-period DAX)
 nas_order = {"Feb 2024": 1, "Feb 2025": 2, "Agu 2025": 3,
-             "Feb 2026": 4, "Mei 2026": 5}
+             "Feb 2026": 4, "Mei 2026": 5, "Agu 2026": 6}
 write("dim_periode.csv",
       ["periode_id", "periode", "tahun", "bulan", "urutan", "urutan_nasional"],
       [{"periode_id": i, "periode": p, "tahun": t, "bulan": b, "urutan": i,
@@ -80,16 +81,20 @@ def add_seg(csv_name, key_col, dimensi, colmap):
                                  "segmen": r[key_col], "tpt_persen": v})
 
 
-COL4 = {"feb_2024": "Feb 2024", "feb_2025": "Feb 2025",
-        "feb_2026": "Feb 2026", "mei_2026": "Mei 2026"}
-add_seg("tpt_pendidikan.csv", "pendidikan", "pendidikan", COL4)
-add_seg("tpt_umur.csv", "kelompok_umur", "umur", COL4)
-add_seg("tpt_gender.csv", "jenis_kelamin", "gender",
-        {"feb_2024": "Feb 2024", "feb_2025": "Feb 2025", "feb_2026": "Feb 2026"})
-add_seg("tpt_daerah.csv", "daerah", "daerah",
-        {"feb_2024": "Feb 2024", "feb_2025": "Feb 2025", "feb_2026": "Feb 2026"})
+COL7 = {"feb_2024": "Feb 2024", "agu_2024": "Agu 2024",
+        "feb_2025": "Feb 2025", "agu_2025": "Agu 2025",
+        "feb_2026": "Feb 2026", "mei_2026": "Mei 2026",
+        "agu_2026": "Agu 2026"}
+add_seg("tpt_pendidikan.csv", "pendidikan", "pendidikan", COL7)
+add_seg("tpt_umur.csv", "kelompok_umur", "umur", COL7)
+COLG = {"feb_2024": "Feb 2024", "agu_2024": "Agu 2024",
+        "feb_2025": "Feb 2025", "agu_2025": "Agu 2025",
+        "feb_2026": "Feb 2026", "agu_2026": "Agu 2026"}
+add_seg("tpt_gender.csv", "jenis_kelamin", "gender", COLG)
+add_seg("tpt_daerah.csv", "daerah", "daerah", COLG)
 pmap = {"agu_2022": "Agu 2022", "agu_2023": "Agu 2023", "agu_2024": "Agu 2024",
-        "agu_2025": "Agu 2025", "feb_2026": "Feb 2026", "mei_2026": "Mei 2026"}
+        "agu_2025": "Agu 2025", "feb_2026": "Feb 2026", "mei_2026": "Mei 2026",
+        "agu_2026": "Agu 2026"}
 for r in read("tpt_provinsi.csv"):
     for c, p in pmap.items():
         v = fnum(r[c])
@@ -125,6 +130,7 @@ ind_map = {
     "TPAK laki-laki": ("tpak_laki_persen", "persen"),
     "TPAK perempuan": ("tpak_perempuan_persen", "persen"),
     "Pekerja formal (juta orang)": ("formal_jt", "juta orang"),
+    "Pekerja penuh": ("penuh_persen", "persen"),
 }
 irows = []
 for r in read("pasar_kerja_indikator.csv"):
@@ -132,7 +138,7 @@ for r in read("pasar_kerja_indikator.csv"):
         continue
     kode, satuan = ind_map[r["indikator"]]
     for c, p in [("feb_2025", "Feb 2025"), ("feb_2026", "Feb 2026"),
-                 ("mei_2026", "Mei 2026")]:
+                 ("mei_2026", "Mei 2026"), ("agu_2026", "Agu 2026")]:
         v = fnum(r[c])
         if v is not None:
             irows.append({"periode_id": PID[p], "indikator": kode,
