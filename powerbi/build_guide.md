@@ -51,8 +51,8 @@ ke `dim_segmen[dimensi] = "pendidikan"`; halaman 3 ke
 ## Langkah 6 — Cek akhir
 
 Samakan dengan tabel di `measures_dax_CATATAN_LEVEL.md`:
-TPT nasional Mei 2026 = 4,65%; SMK = 7,68%; SD = 2,31%;
-15-24 thn = 17,37%; Papua = 7,08%; Bali = 1,52%.
+TPT nasional Agu 2026 = 4,75%; SMK = 8,20%; SD = 2,24%;
+15-24 thn = 17,50%; Papua = 7,12%; Bali = 1,42%.
 Kalau beda, cek relasi dan filter halaman dulu.
 
 ## Langkah 7 — Publish (opsional)
