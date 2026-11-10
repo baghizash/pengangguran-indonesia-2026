@@ -2,18 +2,20 @@
   "meta": {
     "topik": "Pengangguran dan Pasar Kerja Indonesia 2026",
     "sumber": "Kompilasi angka resmi BPS (Sakernas) — lihat data/SOURCES.md",
-    "periode": "Feb 2024 s.d. Mei 2026"
+    "periode": "Feb 2024 s.d. Agu 2026"
   },
   "nasional": {
     "tpt_feb_2024": 4.82,
-    "tpt_mei_2026": 4.65,
-    "penurunan_pp_feb24_mei26": -0.17,
-    "penganggur_mei_2026_jt": 7.22,
-    "angkatan_kerja_mei_2026_jt": 155.41,
-    "bekerja_mei_2026_jt": 148.19,
-    "tpak_mei_2026": 70.57,
+    "tpt_agu_2026": 4.75,
+    "tpt_agu_2025": 4.85,
+    "perubahan_pp_feb24_agu26": -0.07,
+    "turun_pp_yoy_agu25_agu26": -0.1,
+    "penganggur_agu_2026_jt": 7.38,
+    "angkatan_kerja_agu_2026_jt": 155.37,
+    "bekerja_agu_2026_jt": 147.99,
+    "tpak_agu_2026": 70.33,
+    "upah_buruh_agu_2026_jt": 3.42,
     "upah_buruh_mei_2026_jt": 3.39,
-    "upah_buruh_feb_2026_jt": 3.29,
     "seri": [
       {
         "periode": "Feb 2024",
@@ -59,184 +61,224 @@
         "bekerja_jt": 148.19,
         "penganggur_jt": 7.22,
         "upah_buruh_jt": 3.39
+      },
+      {
+        "periode": "Agu 2026",
+        "tpt": 4.75,
+        "angkatan_kerja_jt": 155.37,
+        "tpak": 70.33,
+        "bekerja_jt": 147.99,
+        "penganggur_jt": 7.38,
+        "upah_buruh_jt": 3.42
       }
     ],
     "pdb_q2_2026_yoy": 5.29
   },
   "paradoks_pendidikan": {
-    "smk_mei_2026": 7.68,
-    "sd_mei_2026": 2.31,
-    "smk_vs_sd_pp": 5.37,
-    "smk_vs_nasional_ratio": 1.65,
+    "smk_agu_2026": 8.2,
+    "sd_agu_2026": 2.24,
+    "smk_vs_sd_pp": 5.96,
+    "smk_vs_nasional_ratio": 1.73,
     "smk_tren": {
       "Feb 2024": 8.62,
+      "Agu 2024": 9.01,
       "Feb 2025": 8.0,
+      "Agu 2025": 8.63,
       "Feb 2026": 7.74,
-      "Mei 2026": 7.68
+      "Mei 2026": 7.68,
+      "Agu 2026": 8.2
     },
-    "smk_turun_pp_feb24_mei26": -0.94,
+    "smk_perubahan_pp_feb24_agu26": -0.42,
+    "smk_turun_pp_yoy": -0.43,
     "seri_pendidikan": {
       "SD ke bawah": {
         "Feb 2024": 2.38,
+        "Agu 2024": 2.32,
         "Feb 2025": 2.32,
+        "Agu 2025": 2.3,
         "Feb 2026": 2.32,
-        "Mei 2026": 2.31
+        "Mei 2026": 2.31,
+        "Agu 2026": 2.24
       },
       "SMP": {
         "Feb 2024": 4.28,
+        "Agu 2024": 4.11,
         "Feb 2025": 4.35,
+        "Agu 2025": 3.8,
         "Feb 2026": 4.19,
-        "Mei 2026": 4.16
+        "Mei 2026": 4.16,
+        "Agu 2026": 3.78
       },
       "SMA": {
         "Feb 2024": 6.73,
+        "Agu 2024": 7.05,
         "Feb 2025": 6.35,
+        "Agu 2025": 6.88,
         "Feb 2026": 6.23,
-        "Mei 2026": 6.17
+        "Mei 2026": 6.17,
+        "Agu 2026": 6.87
       },
       "SMK": {
         "Feb 2024": 8.62,
+        "Agu 2024": 9.01,
         "Feb 2025": 8.0,
+        "Agu 2025": 8.63,
         "Feb 2026": 7.74,
-        "Mei 2026": 7.68
+        "Mei 2026": 7.68,
+        "Agu 2026": 8.2
       },
       "Diploma I/II/III": {
         "Feb 2024": 4.87,
+        "Agu 2024": 4.83,
         "Feb 2025": 4.84,
+        "Agu 2025": 4.31,
         "Feb 2026": 4.8,
-        "Mei 2026": 4.75
+        "Mei 2026": 4.75,
+        "Agu 2026": 4.18
       },
       "Diploma IV/S1/S2/S3": {
         "Feb 2024": 5.63,
+        "Agu 2024": 5.25,
         "Feb 2025": 6.23,
+        "Agu 2025": 5.39,
         "Feb 2026": 6.13,
-        "Mei 2026": 6.09
+        "Mei 2026": 6.09,
+        "Agu 2026": 5.09
       }
     },
-    "distribusi_penganggur_mei_2026": [
+    "distribusi_penganggur_agu_2026": [
       {
         "pendidikan": "SMA",
-        "porsi_persen": 28.0,
-        "juta_orang": 2.0216
+        "porsi_persen": 32.31,
+        "juta_orang": 2.3845
       },
       {
         "pendidikan": "SMK",
-        "porsi_persen": 22.39,
-        "juta_orang": 1.6166
+        "porsi_persen": 24.85,
+        "juta_orang": 1.8339
       },
       {
         "pendidikan": "SD ke bawah",
-        "porsi_persen": 17.18,
-        "juta_orang": 1.2404
+        "porsi_persen": 15.55,
+        "juta_orang": 1.1476
       },
       {
         "pendidikan": "SMP",
-        "porsi_persen": 15.65,
-        "juta_orang": 1.1299
+        "porsi_persen": 13.38,
+        "juta_orang": 0.9874
       },
       {
         "pendidikan": "Diploma IV/S1/S2/S3",
-        "porsi_persen": 14.31,
-        "juta_orang": 1.0332
+        "porsi_persen": 11.93,
+        "juta_orang": 0.8804
       },
       {
         "pendidikan": "Diploma I/II/III",
-        "porsi_persen": 2.48,
-        "juta_orang": 0.1791
+        "porsi_persen": 1.99,
+        "juta_orang": 0.1469
       }
     ],
     "total_porsi_persen": 100.01
   },
   "pengangguran_muda": {
-    "muda_15_24_mei_2026": 17.37,
-    "muda_15_24_feb_2026": 16.36,
-    "muda_naik_pp_feb_mei_2026": 1.01,
-    "muda_vs_nasional_ratio": 3.74,
-    "muda_vs_produktif_ratio": 6.79,
-    "produktif_25_59_mei_2026": 2.56,
+    "muda_15_24_agu_2026": 17.5,
+    "muda_15_24_agu_2025": 16.89,
+    "muda_naik_pp_yoy": 0.61,
+    "muda_vs_nasional_ratio": 3.68,
+    "muda_vs_produktif_ratio": 6.29,
+    "produktif_25_59_agu_2026": 2.78,
     "seri_umur": {
       "15-24 tahun": {
         "Feb 2024": 16.42,
+        "Agu 2024": 17.32,
         "Feb 2025": 16.16,
+        "Agu 2025": 16.89,
         "Feb 2026": 16.36,
-        "Mei 2026": 17.37
+        "Mei 2026": 17.37,
+        "Agu 2026": 17.5
       },
       "25-59 tahun": {
         "Feb 2024": 3.08,
+        "Agu 2024": 2.94,
         "Feb 2025": 3.04,
+        "Agu 2025": 2.93,
         "Feb 2026": 2.93,
-        "Mei 2026": 2.56
+        "Mei 2026": 2.56,
+        "Agu 2026": 2.78
       },
       "60 tahun ke atas": {
         "Feb 2024": 1.14,
+        "Agu 2024": 1.49,
         "Feb 2025": 1.67,
+        "Agu 2025": 1.71,
         "Feb 2026": 1.89,
-        "Mei 2026": 2.35
+        "Mei 2026": 2.35,
+        "Agu 2026": 1.44
       }
     }
   },
   "kesenjangan": {
-    "laki_feb_2026": 4.88,
-    "perempuan_feb_2026": 4.36,
-    "gender_gap_pp": 0.52,
-    "perkotaan_feb_2026": 5.6,
-    "perdesaan_feb_2026": 3.2,
-    "urban_rural_gap_pp": 2.4,
-    "urban_rural_ratio": 1.75,
-    "tpak_laki_feb_2026": 84.57,
-    "tpak_perempuan_feb_2026": 56.41
+    "laki_agu_2026": 4.64,
+    "perempuan_agu_2026": 4.93,
+    "gender_gap_pp": -0.29,
+    "perkotaan_agu_2026": 5.53,
+    "perdesaan_agu_2026": 3.45,
+    "urban_rural_gap_pp": 2.08,
+    "urban_rural_ratio": 1.6,
+    "tpak_laki_agu_2026": 84.16,
+    "tpak_perempuan_agu_2026": 56.37
   },
   "provinsi": {
-    "top_mei_2026": [
+    "top_agu_2026": [
       {
         "provinsi": "Papua",
-        "tpt": 7.08
+        "tpt": 7.12
       },
       {
         "provinsi": "Jawa Barat",
-        "tpt": 6.61
+        "tpt": 6.67
       },
       {
         "provinsi": "Banten",
-        "tpt": 6.48
-      },
-      {
-        "provinsi": "Kepulauan Riau",
-        "tpt": 6.45
+        "tpt": 6.61
       },
       {
         "provinsi": "Papua Barat Daya",
-        "tpt": 6.38
+        "tpt": 6.56
       },
       {
-        "provinsi": "Aceh",
-        "tpt": 5.89
-      },
-      {
-        "provinsi": "Sulawesi Utara",
-        "tpt": 5.85
-      },
-      {
-        "provinsi": "DKI Jakarta",
-        "tpt": 5.79
+        "provinsi": "Kepulauan Riau",
+        "tpt": 6.37
       },
       {
         "provinsi": "Maluku",
+        "tpt": 6.23
+      },
+      {
+        "provinsi": "Sulawesi Utara",
+        "tpt": 5.9
+      },
+      {
+        "provinsi": "DKI Jakarta",
         "tpt": 5.75
       },
       {
+        "provinsi": "Aceh",
+        "tpt": 5.7
+      },
+      {
         "provinsi": "Sumatera Barat",
-        "tpt": 5.53
+        "tpt": 5.57
       }
     ],
-    "terendah_mei_2026": [
+    "terendah_agu_2026": [
       {
         "provinsi": "Nusa Tenggara Barat",
-        "tpt": 2.99
+        "tpt": 3.03
       },
       {
         "provinsi": "Sulawesi Tengah",
-        "tpt": 2.95
+        "tpt": 2.94
       },
       {
         "provinsi": "Sulawesi Barat",
@@ -244,63 +286,64 @@
       },
       {
         "provinsi": "Papua Pegunungan",
-        "tpt": 1.86
+        "tpt": 1.83
       },
       {
         "provinsi": "Bali",
-        "tpt": 1.52
+        "tpt": 1.42
       }
     ],
-    "papua_vs_bali_ratio": 4.66,
-    "turun_terbesar_feb_mei_2026": [
+    "papua_vs_bali_ratio": 5.01,
+    "turun_terbesar_agu25_agu26": [
       {
-        "provinsi": "Kepulauan Riau",
-        "feb_2026": 6.87,
-        "mei_2026": 6.45,
-        "perubahan_pp": -0.42
+        "provinsi": "DKI Jakarta",
+        "agu_2025": 6.05,
+        "agu_2026": 5.75,
+        "perubahan_pp": -0.3
       },
       {
-        "provinsi": "Sulawesi Selatan",
-        "feb_2026": 4.95,
-        "mei_2026": 4.66,
+        "provinsi": "Papua Barat Daya",
+        "agu_2025": 6.85,
+        "agu_2026": 6.56,
         "perubahan_pp": -0.29
       },
       {
-        "provinsi": "DKI Jakarta",
-        "feb_2026": 6.03,
-        "mei_2026": 5.79,
-        "perubahan_pp": -0.24
+        "provinsi": "Jawa Timur",
+        "agu_2025": 3.88,
+        "agu_2026": 3.6,
+        "perubahan_pp": -0.28
       }
     ],
-    "naik_terbesar_feb_mei_2026": [
+    "naik_terbesar_agu25_agu26": [
+      {
+        "provinsi": "Papua Selatan",
+        "agu_2025": 4.04,
+        "agu_2026": 5.17,
+        "perubahan_pp": 1.13
+      },
+      {
+        "provinsi": "Papua Tengah",
+        "agu_2025": 3.62,
+        "agu_2026": 3.87,
+        "perubahan_pp": 0.25
+      },
       {
         "provinsi": "Sulawesi Tenggara",
-        "feb_2026": 3.25,
-        "mei_2026": 3.47,
-        "perubahan_pp": 0.22
-      },
-      {
-        "provinsi": "Papua Pegunungan",
-        "feb_2026": 1.7,
-        "mei_2026": 1.86,
-        "perubahan_pp": 0.16
-      },
-      {
-        "provinsi": "Nusa Tenggara Timur",
-        "feb_2026": 3.16,
-        "mei_2026": 3.26,
-        "perubahan_pp": 0.1
+        "agu_2025": 3.31,
+        "agu_2026": 3.52,
+        "perubahan_pp": 0.21
       }
     ],
-    "gap_catatan": "Mei 2026 hanya tersedia untuk 17 provinsi; Papua 2022-2023 tidak sebanding (pemekaran)"
+    "gap_catatan": "Agu 2026 tersedia untuk semua 38 provinsi (Lampiran 3 BRS); Papua 2022-2023 tidak sebanding (pemekaran)"
   },
   "pasar_kerja": {
-    "formal_feb_2026": 40.58,
-    "informal_feb_2026": 59.42,
-    "formal_jt_feb_2026": 59.93,
-    "setengah_menganggur_feb_2026": 7.27,
-    "paruh_waktu_feb_2026": 25.97,
-    "komuter_feb_2026_jt": 7.19,
+    "formal_agu_2026": 42.07,
+    "informal_agu_2026": 57.93,
+    "formal_jt_agu_2026": 62.25,
+    "setengah_menganggur_agu_2026": 8.68,
+    "paruh_waktu_agu_2026": 23.85,
+    "penuh_agu_2026": 67.47,
+    "komuter_agu_2026_jt": 7.53,
     "sektor_penambah_feb_mei_2026": [
       {
         "sektor": "Penyediaan akomodasi dan makan minum",
