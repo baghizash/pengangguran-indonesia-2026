@@ -101,7 +101,7 @@ muda = F["pengangguran_muda"]
 kes = F["kesenjangan"]
 prov = F["provinsi"]
 kerja = F["pasar_kerja"]
-PERIODE = ["Feb 2024", "Feb 2025", "Agu 2025", "Feb 2026", "Mei 2026"]
+PERIODE = ["Feb 2024", "Agu 2024", "Feb 2025", "Agu 2025", "Feb 2026", "Mei 2026", "Agu 2026"]
 
 # ---------- COVER ----------
 story.append(Spacer(1, 3 * cm))
@@ -116,7 +116,7 @@ P("Modul ini mengajak kamu menganalisis pengangguran di Indonesia memakai angka 
   "Semua angka di modul ini dihitung dari data — tidak ada yang dikarang.", "coversub")
 story.append(Spacer(1, 0.5 * cm))
 P("Sumber data: BPS, Survei Angkatan Kerja Nasional (Sakernas). "
-  "Periode: Februari 2024 sampai Mei 2026. Daftar sumber per angka: data/SOURCES.md.", "warn")
+  "Periode: Februari 2024 sampai Agustus 2026. Daftar sumber per angka: data/SOURCES.md.", "warn")
 story.append(PageBreak())
 
 # ---------- BAB 1 ----------
@@ -141,12 +141,13 @@ P("Project ini tidak punya mikrodataset mentah Sakernas — yang dikompilasi "
   "adalah angka-angka resmi dari publikasi BPS: laporan Sakernas, Berita Resmi "
   "Statistik, dan tabel statistik di situs BPS. Setiap angka yang dipakai "
   "dicatat sumber publikasinya di data/SOURCES.md.", "body")
-P("Hasil kompilasi: 5 titik waktu (Feb 2024, Feb 2025, Agu 2025, Feb 2026, "
-  "Mei 2026) dengan rincian:", "h2")
+P("Hasil kompilasi: seri nasional 6 titik waktu (Feb 2024, Feb 2025, Agu 2025, "
+  "Feb 2026, Mei 2026, Agu 2026) dan rincian segmen di 7 titik waktu "
+  "(ditambah Agu 2024), dengan rincian:", "h2")
 B("Pendidikan terakhir: SD ke bawah, SMP, SMA, SMK, Diploma I/II/III, Diploma IV/S1/S2/S3.")
 B("Kelompok umur: 15-24 tahun, 25-59 tahun, 60 tahun ke atas.")
 B("Jenis kelamin dan daerah (perkotaan/perdesaan).")
-B("38 provinsi (Mei 2026 tersedia untuk 17 provinsi).")
+B("38 provinsi (Agu 2026 tersedia untuk semua 38 provinsi).")
 B("Indikator pasar kerja: formal/informal, setengah menganggur, paruh waktu, komuter, upah, penambah lapangan kerja.")
 P("Data dimuat ke SQLite dengan scripts/load_to_sqlite.py, lalu setiap angka "
   "kunci diverifikasi ulang dengan query SQL independen di sql/queries.sql. "
@@ -156,15 +157,17 @@ story.append(PageBreak())
 
 # ---------- BAB 3 ----------
 P("Bab 3 — TPT Nasional: Turun Pelan tapi Pasti", "h1")
-P(f"TPT nasional turun dari {num(nas['tpt_feb_2024'])}% (Feb 2024) ke "
-  f"{num(nas['tpt_mei_2026'])}% (Mei 2026) — penurunan "
-  f"{num(abs(nas['penurunan_pp_feb24_mei26']))} poin persen. Sepanjang jalan ada sedikit "
-  "naik-turun (misalnya naik ke 4,85% pada Agu 2025), tapi arah umumnya turun.", "body")
+P(f"TPT nasional {num(nas['tpt_agu_2026'])}% pada Agu 2026 — turun "
+  f"{num(abs(nas['turun_pp_yoy_agu25_agu26']))} poin persen dari Agu 2025 "
+  f"({num(nas['tpt_agu_2025'])}%). Sejak Feb 2024 ({num(nas['tpt_feb_2024'])}%) arahnya "
+  f"turun {num(abs(nas['perubahan_pp_feb24_agu26']))} poin persen, dengan pola musiman: "
+  "titik Agustus cenderung sedikit lebih tinggi dari titik Februari/Mei karena "
+  "lulusan baru masuk pasar kerja.", "body")
 TABLE([["Periode", "TPT (%)", "Angkatan Kerja (jt)", "Bekerja (jt)", "Penganggur (jt)", "TPAK (%)", "Upah (jt Rp)"]] +
       [[r["periode"], r["tpt"], r["angkatan_kerja_jt"] or "-", r["bekerja_jt"] or "-",
         r["penganggur_jt"] or "-", r["tpak"] or "-", r["upah_buruh_jt"] or "-"]
        for r in nas["seri"]])
-CHART("01_tpt_nasional_tren.png", "Gambar 1 — Tren TPT nasional, Feb 2024 – Mei 2026.")
+CHART("01_tpt_nasional_tren.png", "Gambar 1 — Tren TPT nasional, Feb 2024 – Agu 2026.")
 P(f"Di saat yang sama, ekonomi tetap tumbuh: PDB Q2 2026 tumbuh {num(nas['pdb_q2_2026_yoy'])}% "
   "secara tahunan. Tapi angka rata-rata nasional menyembunyikan jurang yang "
   "lebar di bawahnya — itulah yang kita bongkar di bab-bab berikutnya.", "body")
@@ -174,99 +177,103 @@ story.append(PageBreak())
 P("Bab 4 — Paradoks Pendidikan (Inti Analisis Ini)", "h1")
 P("Ini temuan paling penting project ini. Kalau kamu mengira makin tinggi "
   "ijazah makin mudah dapat kerja, data BPS berkata lain:", "body")
-TABLE([["Jenjang", "Feb 2024", "Feb 2025", "Feb 2026", "Mei 2026"]] +
-      [[j, par["seri_pendidikan"][j]["Feb 2024"], par["seri_pendidikan"][j]["Feb 2025"],
-        par["seri_pendidikan"][j]["Feb 2026"], par["seri_pendidikan"][j]["Mei 2026"]]
+TABLE([["Jenjang"] + PERIODE] +
+      [[j] + [par["seri_pendidikan"][j][p] for p in PERIODE]
        for j in ["SD ke bawah", "SMP", "SMA", "SMK", "Diploma I/II/III", "Diploma IV/S1/S2/S3"]])
-P(f"Lulusan SMK punya TPT {num(par['smk_mei_2026'])}% — tertinggi di antara semua "
-  f"jenjang. Bandingkan dengan lulusan SD ke bawah yang hanya 2,31%: "
+P(f"Lulusan SMK punya TPT {num(par['smk_agu_2026'])}% — tertinggi di antara semua "
+  f"jenjang. Bandingkan dengan lulusan SD ke bawah yang hanya {num(par['sd_agu_2026'])}%: "
   f"selisihnya {num(par['smk_vs_sd_pp'])} poin persen, dan TPT SMK "
   f"{num(par['smk_vs_nasional_ratio'])} kali lipat rata-rata nasional. Inilah paradoksnya: "
   "jenjang pendidikan terendah justru paling mudah bekerja.", "body")
-CHART("02_paradoks_pendidikan.png", "Gambar 2 — TPT per jenjang pendidikan, Mei 2026. SMK tertinggi.")
-P("Lulusan universitas (Diploma IV/S1/S2/S3) juga tinggi: 6,09%, bahkan lebih "
+CHART("02_paradoks_pendidikan.png", "Gambar 2 — TPT per jenjang pendidikan, Agu 2026. SMK tertinggi.")
+P("Lulusan universitas (Diploma IV/S1/S2/S3) juga tinggi: 5,09%, bahkan lebih "
   "tinggi dari lulusan SMP. Pasar kerja tidak menyerap sesuai ijazah. "
-  "Kabar baiknya: TPT SMK membaik, turun dari 8,62% (Feb 2024) ke 7,68% "
-  "(Mei 2026) — turun 0,94 poin persen. Tapi tetap jauh di atas semua jenjang "
-  "lain, jadi perbaikan tren belum menyentuh struktur masalahnya.", "body")
-CHART("03_pendidikan_tren.png", "Gambar 3 — Tren TPT per jenjang pendidikan, Feb 2024 – Mei 2026.")
+  "Kabar baiknya: secara tahunan TPT SMK turun dari 8,63% (Agu 2025) ke 8,20% "
+  "(Agu 2026). Tapi Agustus selalu menjadi puncak tahunan (9,01% pada Agu 2024) "
+  "karena lulusan baru masuk pasar kerja, dan SMK tetap jauh di atas semua "
+  "jenjang lain — perbaikan tren belum menyentuh struktur masalahnya.", "body")
+CHART("03_pendidikan_tren.png", "Gambar 3 — Tren TPT per jenjang pendidikan, Feb 2024 – Agu 2026.")
 story.append(PageBreak())
 
 # ---------- BAB 5 ----------
 P("Bab 5 — Pengangguran Muda: Krisis yang Sebenarnya", "h1")
-P(f"TPT usia 15-24 tahun mencapai {num(muda['muda_15_24_mei_2026'])}% pada Mei 2026 — "
-  f"naik {num(muda['muda_naik_pp_feb_mei_2026'])} poin persen dari Feb 2026. Ini "
-  "satu-satunya kelompok umur yang TPT-nya naik dalam periode tersebut.", "body")
-TABLE([["Kelompok Umur", "Feb 2024", "Feb 2025", "Feb 2026", "Mei 2026"]] +
-      [[k, muda["seri_umur"][k]["Feb 2024"], muda["seri_umur"][k]["Feb 2025"],
-        muda["seri_umur"][k]["Feb 2026"], muda["seri_umur"][k]["Mei 2026"]]
+P(f"TPT usia 15-24 tahun mencapai {num(muda['muda_15_24_agu_2026'])}% pada Agu 2026 — "
+  f"naik {num(muda['muda_naik_pp_yoy'])} poin persen dari Agu 2025. Ini "
+  "satu-satunya kelompok umur yang TPT-nya naik secara tahunan.", "body")
+TABLE([["Kelompok Umur"] + PERIODE] +
+      [[k] + [muda["seri_umur"][k][p] for p in PERIODE]
        for k in ["15-24 tahun", "25-59 tahun", "60 tahun ke atas"]])
 P(f"Untuk skala: angka anak muda {num(muda['muda_vs_nasional_ratio'])} kali lipat "
   f"rata-rata nasional dan {num(muda['muda_vs_produktif_ratio'])} kali lipat kelompok "
-  f"usia produktif 25-59 tahun ({num(muda['produktif_25_59_mei_2026'])}%). Kelompok "
-  "25-59 justru turun dari 3,08% ke 2,56%. Kesimpulannya jelas: krisis "
+  f"usia produktif 25-59 tahun ({num(muda['produktif_25_59_agu_2026'])}%). Kelompok "
+  "25-59 turun dari 3,08% (Feb 2024) ke 2,78% (Agu 2026). Kesimpulannya jelas: krisis "
   "pengangguran Indonesia adalah krisis pengangguran muda — dan sebagian besar "
   "penganggur muda adalah lulusan SMA/SMK.", "body")
-CHART("04_umur.png", "Gambar 4 — TPT per kelompok umur, Feb 2024 – Mei 2026.")
+CHART("04_umur.png", "Gambar 4 — TPT per kelompok umur, Feb 2024 – Agu 2026.")
 story.append(PageBreak())
 
 # ---------- BAB 6 ----------
 P("Bab 6 — Kesenjangan Gender, Kota-Desa, dan Provinsi", "h1")
 P("Pengangguran tidak tersebar merata. Tiga jurang besar:", "h2")
 P("1. Kota vs desa", "h2")
-P(f"Pengangguran perkotaan {num(kes['perkotaan_feb_2026'])}% vs perdesaan "
-  f"{num(kes['perdesaan_feb_2026'])}% — selisih {num(kes['urban_rural_gap_pp'])} poin persen, "
+P(f"Pengangguran perkotaan {num(kes['perkotaan_agu_2026'])}% vs perdesaan "
+  f"{num(kes['perdesaan_agu_2026'])}% — selisih {num(kes['urban_rural_gap_pp'])} poin persen, "
   f"kota {num(kes['urban_rural_ratio'])} kali lipat desa. Pengangguran adalah persoalan "
   "perkotaan.", "body")
 P("2. Laki-laki vs perempuan", "h2")
-P(f"Laki-laki {num(kes['laki_feb_2026'])}% vs perempuan {num(kes['perempuan_feb_2026'])}% "
-  f"(selisih {num(kes['gender_gap_pp'])} poin persen). Tapi jangan buru-buru "
-  f"menyimpulkan perempuan lebih baik: TPAK perempuan hanya {num(kes['tpak_perempuan_feb_2026'])}% "
-  f"vs laki-laki {num(kes['tpak_laki_feb_2026'])}% — banyak perempuan bahkan tidak "
+P(f"Perempuan {num(kes['perempuan_agu_2026'])}% kini melampaui laki-laki {num(kes['laki_agu_2026'])}% "
+  f"(selisih {num(abs(kes['gender_gap_pp']))} poin persen) — berbalik dari pola Februari 2026, "
+  "saat laki-laki lebih tinggi. Tapi jangan buru-buru menyimpulkan: "
+  f"TPAK perempuan hanya {num(kes['tpak_perempuan_agu_2026'])}% "
+  f"vs laki-laki {num(kes['tpak_laki_agu_2026'])}% — banyak perempuan bahkan tidak "
   "masuk angkatan kerja, jadi tidak tercatat sebagai penganggur.", "body")
-CHART("05_kesenjangan.png", "Gambar 5 — Kesenjangan gender dan kota-desa, Feb 2026.")
+CHART("05_kesenjangan.png", "Gambar 5 — Kesenjangan gender dan kota-desa, Agu 2026.")
 P("3. Antar provinsi", "h2")
-P(f"Papua {num(prov['top_mei_2026'][0]['tpt'])}% vs Bali {num(prov['terendah_mei_2026'][-1]['tpt'])}% — "
+P(f"Papua {num(prov['top_agu_2026'][0]['tpt'])}% vs Bali {num(prov['terendah_agu_2026'][-1]['tpt'])}% — "
   f"selisih {num(prov['papua_vs_bali_ratio'])} kali lipat. Sepuluh provinsi tertinggi dipimpin "
   "Papua, lalu Jawa Barat, Banten, dan Kepulauan Riau. Lima terendah: Bali, "
   "Papua Pegunungan, Sulawesi Barat, Sulawesi Tengah, dan NTB.", "body")
-CHART("06_provinsi_top10.png", "Gambar 6 — 10 provinsi dengan TPT tertinggi, Mei 2026.")
-P(f"Perubahan Feb→Mei 2026: penurunan terbesar {num(prov['turun_terbesar_feb_mei_2026'][0]['provinsi'])} "
-  f"({num(prov['turun_terbesar_feb_mei_2026'][0]['perubahan_pp'])} poin persen), kenaikan terbesar "
-  f"{num(prov['naik_terbesar_feb_mei_2026'][0]['provinsi'])} "
-  f"(+{num(prov['naik_terbesar_feb_mei_2026'][0]['perubahan_pp'])} poin persen).", "body")
+CHART("06_provinsi_top10.png", "Gambar 6 — 10 provinsi dengan TPT tertinggi, Agu 2026.")
+P(f"Perubahan Agu 2025 ke Agu 2026: penurunan terbesar {num(prov['turun_terbesar_agu25_agu26'][0]['provinsi'])} "
+  f"({num(prov['turun_terbesar_agu25_agu26'][0]['perubahan_pp'])} poin persen), kenaikan terbesar "
+  f"{num(prov['naik_terbesar_agu25_agu26'][0]['provinsi'])} "
+  f"(+{num(prov['naik_terbesar_agu25_agu26'][0]['perubahan_pp'])} poin persen).", "body")
 story.append(PageBreak())
 
 # ---------- BAB 7 ----------
-P("Bab 7 — Siapa 7,22 Juta Penganggur Itu?", "h1")
-P("Distribusi penganggur Mei 2026 berdasarkan pendidikan terakhir:", "body")
+P("Bab 7 — Siapa 7,38 Juta Penganggur Itu?", "h1")
+P("Distribusi penganggur Agu 2026 berdasarkan pendidikan terakhir:", "body")
 TABLE([["Pendidikan", "Porsi", "Jiwa (jt)"]] +
       [[d["pendidikan"], f"{num(d['porsi_persen'])}%", num(round(d["juta_orang"], 2))]
-       for d in par["distribusi_penganggur_mei_2026"]])
-P("Lulusan SMA adalah penyumbang penganggur terbesar: 28% atau 2,02 juta jiwa, "
-  "disusul SMK 22,39% atau 1,62 juta jiwa. Lebih dari separuh penganggur Indonesia "
-  "adalah lulusan sekolah menengah. Lulusan universitas 14,31% (1,03 juta jiwa), "
-  "diploma 2,48% (0,18 juta jiwa).", "body")
-CHART("08_distribusi_penganggur.png", "Gambar 7 — Distribusi 7,22 juta penganggur per pendidikan, Mei 2026.")
+       for d in par["distribusi_penganggur_agu_2026"]])
+P("Lulusan SMA adalah penyumbang penganggur terbesar: 32,31% atau 2,38 juta jiwa, "
+  "disusul SMK 24,85% atau 1,83 juta jiwa. Hampir 6 dari 10 penganggur Indonesia "
+  "(57,16%) adalah lulusan sekolah menengah. Lulusan universitas 11,93% (0,88 juta jiwa), "
+  "diploma 1,99% (0,15 juta jiwa).", "body")
+CHART("08_distribusi_penganggur.png", "Gambar 7 — Distribusi 7,38 juta penganggur per pendidikan, Agu 2026.")
 story.append(PageBreak())
 
 # ---------- BAB 8 ----------
 P("Bab 8 — Kualitas Pekerjaan dan Upah", "h1")
 P("Angka pengangguran hanya separuh cerita. Yang bekerja pun belum tentu "
   "bekerja dengan baik:", "body")
-B(f"Pekerja formal hanya {num(kerja['formal_feb_2026'])}% ({num(kerja['formal_jt_feb_2026'])} juta jiwa) — "
-  f"sisanya {num(kerja['informal_feb_2026'])}% bekerja informal.")
+B(f"Pekerja formal hanya {num(kerja['formal_agu_2026'])}% ({num(kerja['formal_jt_agu_2026'])} juta jiwa) — "
+  f"sisanya {num(kerja['informal_agu_2026'])}% bekerja informal.")
 B(f"Setengah menganggur (bekerja kurang dari 35 jam/minggu dan masih mencari "
-  f"pekerjaan) {num(kerja['setengah_menganggur_feb_2026'])}%; pekerja paruh waktu "
-  f"{num(kerja['paruh_waktu_feb_2026'])}%.")
+  f"pekerjaan) {num(kerja['setengah_menganggur_agu_2026'])}%; pekerja paruh waktu "
+  f"{num(kerja['paruh_waktu_agu_2026'])}%.")
 B(f"Pekerja komuter (bekerja di kabupaten/kota berbeda dari tempat tinggal) "
-  f"{num(kerja['komuter_feb_2026_jt'])} juta jiwa.")
-CHART("09_formal_informal.png", "Gambar 8 — Komposisi pekerja formal vs informal, Feb 2026.")
-P("Sisi baiknya: upah rata-rata buruh naik dari Rp3,29 jt (Feb 2026) ke Rp3,39 jt "
-  "(Mei 2026). Penambah lapangan kerja terbesar Feb→Mei 2026:", "body")
+  f"{num(kerja['komuter_agu_2026_jt'])} juta jiwa.")
+CHART("09_formal_informal.png", "Gambar 8 — Komposisi pekerja formal vs informal, Agu 2026.")
+P("Sisi baiknya: upah rata-rata buruh naik dari Rp3,39 jt (Mei 2026) ke Rp3,42 jt "
+  "(Agu 2026), dan lapangan usaha penyerap pekerja terbesar tetap pertanian "
+  "(41,73 juta orang), perdagangan (26,42 juta), dan industri (20,35 juta). "
+  "Catatan: mulai Sakernas Agustus 2026 BPS memakai KBLI 2025, sehingga rincian "
+  "lapangan usaha Agustus tidak sebanding langsung dengan Agustus 2025 (KBLI 2020). "
+  "Penambah lapangan kerja terbesar pada periode sebelumnya (Feb→Mei 2026):", "body")
 TABLE([["Sektor", "Tambahan (ribu orang)"]] +
       [[x["sektor"], x["tambah_ribu"]] for x in kerja["sektor_penambah_feb_mei_2026"]])
-CHART("10_upah_sektor.png", "Gambar 9 — Upah rata-rata buruh dan penambah lapangan kerja per sektor.")
+CHART("10_upah_sektor.png", "Gambar 9 — Upah rata-rata buruh dan lapangan usaha penyerap pekerja terbanyak.")
 story.append(PageBreak())
 
 # ---------- BAB 9 ----------
@@ -274,17 +281,17 @@ P("Bab 9 — Memverifikasi Angka dengan SQL, Langkah per Langkah", "h1")
 P("Setiap angka kunci di modul ini dihitung ulang lewat query SQL independen "
   "di sql/queries.sql. Jalankan dengan:", "body")
 CODE("sqlite3 data/pengangguran_2026.db < sql/queries.sql")
-P("Contoh 1: verifikasi gap SMK vs SD (harus keluar 7.68, 2.31, gap 5.37):", "h2")
-CODE("SELECT pendidikan, mei_2026 FROM tpt_pendidikan\n"
+P("Contoh 1: verifikasi gap SMK vs SD (harus keluar 8.20, 2.24, gap 5.96):", "h2")
+CODE("SELECT pendidikan, agu_2026 FROM tpt_pendidikan\n"
      "WHERE pendidikan IN ('SMK', 'SD ke bawah');\n"
      "SELECT ROUND(\n"
-     "  (SELECT mei_2026 FROM tpt_pendidikan WHERE pendidikan = 'SMK') -\n"
-     "  (SELECT mei_2026 FROM tpt_pendidikan WHERE pendidikan = 'SD ke bawah'), 2)\n"
+     "  (SELECT agu_2026 FROM tpt_pendidikan WHERE pendidikan = 'SMK') -\n"
+     "  (SELECT agu_2026 FROM tpt_pendidikan WHERE pendidikan = 'SD ke bawah'), 2)\n"
      "  AS smk_vs_sd_gap_pp;")
-P("Contoh 2: verifikasi rasio muda vs nasional (harus keluar sekitar 3.74):", "h2")
+P("Contoh 2: verifikasi rasio muda vs nasional (harus keluar sekitar 3.68):", "h2")
 CODE("SELECT ROUND(\n"
-     "  (SELECT mei_2026 FROM tpt_umur WHERE kelompok_umur = '15-24 tahun') /\n"
-     "  (SELECT tpt_persen FROM tpt_nasional WHERE periode = 'Mei 2026'), 2)\n"
+     "  (SELECT agu_2026 FROM tpt_umur WHERE kelompok_umur = '15-24 tahun') /\n"
+     "  (SELECT tpt_persen FROM tpt_nasional WHERE periode = 'Agu 2026'), 2)\n"
      "  AS muda_vs_nasional;")
 P("Contoh 3: verifikasi distribusi penganggur berjumlah sekitar 100%:", "h2")
 CODE("SELECT ROUND(SUM(porsi_persen), 2) AS total_porsi FROM distribusi_penganggur;")
@@ -304,11 +311,11 @@ P("Pelajaran dari proyek Harga Cabai 2026: satu tabel fakta yang mencampur "
   "salah ketika slicer provinsi dibiarkan All. Di proyek ini jebakan itu "
   "dihilangkan sejak desain data:", "body")
 TABLE([["Tabel", "Isi", "Kunci"],
-       ["fact_tpt_nasional", "HANYA 5 baris agregat nasional (Feb 2024 s.d. Mei 2026)", "periode_id"],
-       ["fact_tpt_segmen", "HANYA 250 baris level segmen (pendidikan, umur, gender, daerah, provinsi). Tanpa baris Nasional.", "segmen_id, periode_id"],
+       ["fact_tpt_nasional", "HANYA 6 baris agregat nasional (Feb 2024 s.d. Agu 2026)", "periode_id"],
+       ["fact_tpt_segmen", "HANYA 327 baris level segmen (pendidikan, umur, gender, daerah, provinsi). Tanpa baris Nasional.", "segmen_id, periode_id"],
        ["fact_indikator", "Indikator pasar kerja (formal/informal, setengah menganggur, dll)", "indikator_id, periode_id"],
        ["fact_sektor", "Penambah lapangan kerja per sektor", "sektor_id, periode_id"],
-       ["dim_periode", "5 periode + urutan kronologis", "periode_id"],
+       ["dim_periode", "9 periode + urutan kronologis", "periode_id"],
        ["dim_segmen", "Dimensi segmen (tidak mengandung baris nasional)", "segmen_id"]])
 P("Baca powerbi/measures_dax_CATATAN_LEVEL.md SEBELUM merakit — dokumen itu "
   "menjelaskan kenapa dua tabel fakta ini tidak akan pernah saling "
@@ -330,17 +337,19 @@ story.append(PageBreak())
 # ---------- BAB 11 ----------
 P("Bab 11 — Kesimpulan dan Batasan", "h1")
 P("Tiga pesan utama dari data:", "h2")
-B(f"1. TPT nasional turun ke {num(nas['tpt_mei_2026'])}% seiring ekonomi yang tumbuh "
+B(f"1. TPT nasional {num(nas['tpt_agu_2026'])}%, turun dari 4,85% setahun lalu, seiring ekonomi yang tumbuh "
   f"{num(nas['pdb_q2_2026_yoy'])}%, tapi rata-rata nasional menyembunyikan masalah "
-  "struktur: SMK 7,68% dan anak muda 15-24 tahun 17,37%.")
+  "struktur: SMK 8,20% dan anak muda 15-24 tahun 17,50%.")
 B("2. Pengangguran Indonesia adalah pengangguran muda dan lulusan sekolah "
-  "menengah: SMA + SMK menyumbang lebih dari separuh dari 7,22 juta penganggur. "
-  "Kota-desa (5,60% vs 3,20%) dan Papua-Bali (4,66x) memperlebar jurang.")
-B(f"3. Kualitas pekerjaan belum ideal: formal hanya {num(kerja['formal_feb_2026'])}%, "
-  f"informal {num(kerja['informal_feb_2026'])}%. Upah naik ke Rp3,39 jt, dan sektor "
-  "akomodasi, transportasi, dan jasa menambah lapangan kerja tercepat.")
+  "menengah: SMA + SMK menyumbang 57,16% dari 7,38 juta penganggur. "
+  "Kota-desa (5,53% vs 3,45%) dan Papua-Bali (5,01x) memperlebar jurang.")
+B(f"3. Kualitas pekerjaan belum ideal: formal hanya {num(kerja['formal_agu_2026'])}%, "
+  f"informal {num(kerja['informal_agu_2026'])}%, dan setengah menganggur naik ke "
+  f"{num(kerja['setengah_menganggur_agu_2026'])}%. Upah naik ke Rp3,42 jt; pertanian tetap "
+  "penyerap pekerja terbesar (41,73 juta orang).")
 P("Batasan yang harus kamu pahami:", "h2")
-B("Mei 2026 hanya tersedia untuk 17 provinsi — perbandingan provinsi memakai titik waktu itu.")
+B("Nilai gender dan kota-desa untuk Mei 2026 tidak dipublikasikan BPS — seri segmen itu memakai titik Februari dan Agustus.")
+B("Rincian lapangan usaha Agu 2026 memakai KBLI 2025 (Agu 2025 masih KBLI 2020), jadi perbandingan per sektor antar kedua Agustus itu tidak langsung sebanding.")
 B("Angka Papua 2022-2023 tidak sebanding karena pemekaran provinsi.")
 B("Dataset ini adalah kompilasi angka publikasi resmi, bukan mikrodataset Sakernas — "
   "tidak bisa dipakai untuk tabulasi silang baru.")
